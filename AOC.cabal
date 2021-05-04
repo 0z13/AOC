@@ -1,0 +1,66 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 6c92dad50897d226889ebb795d806413551929389a65f392129dc8e6e3932893
+
+name:           AOC
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/AOC#readme>
+homepage:       https://github.com/tootoobeepbeep/AOC#readme
+bug-reports:    https://github.com/tootoobeepbeep/AOC/issues
+author:         Jonathan Zielinski
+maintainer:     unmaintainable@zoo.com
+copyright:      2021 Zielinski
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/tootoobeepbeep/AOC
+
+library
+  other-modules:
+      Paths_AOC
+  hs-source-dirs:
+      src, src/2020
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , text
+  default-language: Haskell2010
+
+executable AOC-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_AOC
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      AOC
+    , base >=4.7 && <5
+    , containers
+    , text
+  default-language: Haskell2010
+
+test-suite AOC-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_AOC
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      AOC
+    , base >=4.7 && <5
+    , containers
+    , text
+  default-language: Haskell2010
