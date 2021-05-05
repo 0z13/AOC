@@ -1,4 +1,4 @@
-module Day01 where
+module Y2020.Day01 where
 
 import Control.Monad
 import Data.List

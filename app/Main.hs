@@ -1,5 +1,6 @@
 module Main where
 
+import Y2020.Day02
 
 main :: IO ()
-main = print "kurwa" 
+main = Y2020.Day02.inp 
