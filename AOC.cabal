@@ -29,6 +29,9 @@ library
   exposed-modules: 
       Y2020.Day01
       Y2020.Day02
+      Y2020.Day03
+      Y2020.Day04
+      Lib
   other-modules:
       Paths_AOC
   hs-source-dirs:

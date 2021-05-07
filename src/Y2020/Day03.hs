@@ -1,4 +1,4 @@
-module Day03 where
+module Y2020.Day03 where
 
 import Lib
 import qualified Data.Text as T
