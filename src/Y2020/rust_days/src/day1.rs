@@ -11,13 +11,18 @@ pub fn dmain() {
         for line in lines {
             if let Ok(ip) = line {
                 if ip != "" {
-                println!("Pushed {}", ip);
-                vec.push(ip)
+                    println!("Pushed {}", ip);
+                    tmp.push(ip)
                 }
+                else {
+                    vec.push(tmp);
+                    tmp = Vec::new();
+
             }
         }
-
-    }
+        
+     }
+   }
 }
 
 fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>>
