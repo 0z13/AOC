@@ -6,8 +6,6 @@ pub fn solve() -> anyhow::Result<()> {
        .filter(|x| is_valid_pw2(x))
        .count();
 
-
-
    println!("fst ans: {}", g);
    Ok(())
 
@@ -39,10 +37,15 @@ fn is_valid_pw(x: &PasswordAndPolicy) -> bool{
         (x.lo..=x.hi).contains(&(h as i32))
 }
 
-
 fn is_valid_pw2(x: &PasswordAndPolicy) -> bool {
-    (x.password.as_bytes()[x.lo as usize] == x.character.as_bytes()[0] && x.password.as_bytes()[(x.hi - 1) as usize] != x.character.as_bytes()[0]) || 
-    (x.password.as_bytes()[(x.hi - 1) as usize] == x.character.as_bytes()[0] && x.password.as_bytes()[x.lo as usize] != x.character.as_bytes()[0]) 
+    let xs: Vec<char> = x.password.chars().collect();
+     if (xs[(x.hi -1) as usize].to_string() == x.character && xs[(x.lo - 1) as usize].to_string() != x.character) ||
+     (xs[(x.hi -1) as usize].to_string() != x.character && xs[(x.lo -1) as usize].to_string() == x.character) {
+        println!("password: {} char: {} hi: {} lo: {}", x.password, x.character,x.hi,x.lo);
+        return true;
+     } else {
+        return false;
+     }
 }
 
 
