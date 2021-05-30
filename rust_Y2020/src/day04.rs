@@ -1,4 +1,4 @@
-//j
+//
 //
 pub fn solve() {
     let xs =  include_str!("./data/day04.txt").lines();
