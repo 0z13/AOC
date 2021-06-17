@@ -1,44 +1,45 @@
-//j
-//
-use regex::Regex;
+use nom::{IResult, bytes::complete::tag};
+
+struct Id {
+    eyr: i32,
+    ecl: String,
+    hgt: String,
+    pid: i64, 
+    cid: i32,
+    hcl: String,
+    iyr: String,
+}
+
+// Combinators
+
+fn p_eyr(s: &str) -> IResult<&str, &str> {
+    tag("eyr: ")(s)
+}
+
+
+impl Id {
+    parse(xs: String) -> Self {
+        
+    }
+}
 
 pub fn solve() {
     let xs =  include_str!("./data/day04.txt").lines();
     let mut tmp: Vec<String> = Vec::new();
-    let mut data: Vec<Vec<String>> = Vec::new();
-    for lines in xs {
-        if lines == ""  {
-            data.push(tmp.clone());
-            tmp.clear();
-        } else {
-            tmp.push(lines.to_string());
-        }
-    }
+    let mut buffer: Vec<Id> = Vec::new();
 
-
-    let x : Vec<&Vec<String>> = data.iter().filter(|x| pass_control(x)).collect();
-    println!("{}", x.len())
-
-}
-
-fn pass_control(xs : &Vec<String>) -> bool {
-    let re = Regex::new(r"^cid:\d+$").unwrap();
-    let mut counter: i32 = 0;
-    let mut flag : bool = false;
     for i in xs {
-        for j in i.split(' ') {
-            counter = counter + 1;
-            if re.is_match(j) {
-                flag = true; 
-                println!("{}", j);
+        if i == "" {
+            let mut res = String::new();
+            for i in &tmp {
+                res.push_str(i.as_str());
             }
-        }
+            
+            println!("{}", res);
+            println!("");
+            tmp.clear();
+        
+        } else {
+            tmp.push(i.to_string());
     }
-    if counter == 8 || (counter == 7 && flag) {
-        return true;
-    }
-    return false;
-
-}
-
-
+}}
